@@ -36,6 +36,7 @@ export default function Navbar() {
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/view-event">Events</Link></li>
                         <li><Link to="/contact">Contact Us</Link></li>
+                        <li><Link to="/sponsorship-opportunities">Sponsorship Opportunities</Link></li>
                         {user === "admin" && <li><Link to="/create-event">Create Event</Link></li>}
                     </ul>
                 </div>
@@ -50,6 +51,7 @@ export default function Navbar() {
                         <div className="dropdown-content">
                             {user !== "admin" && <Link to="/edit-profile">Edit Profile</Link>}
                             <Link to="/booked-events">Booked Events</Link>
+                            
                             <Link to="/" onClick={logout}>Logout</Link>
                         </div>
                     </div>
