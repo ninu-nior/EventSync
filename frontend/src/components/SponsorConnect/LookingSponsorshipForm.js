@@ -6,7 +6,7 @@ export default function LookingSponsorshipForm() {
         eventName: "",
         collegeName: "",
         eventDate: "",
-        clubname: "",
+        clubName: "",
         email: "",
         phone: "",
         sponsorshipType: "",
@@ -14,7 +14,7 @@ export default function LookingSponsorshipForm() {
         sponsorshipBenefits: "",
         financialCommitment: "",
         additionalNotes: "",
-        lookingForSponsors: false
+        lookingForSponsors: true
     });
 
     const handleChange = (e) => {
@@ -49,7 +49,7 @@ export default function LookingSponsorshipForm() {
                     eventName: "",
                     collegeName: "",
                     eventDate: "",
-                    clubname: "",
+                    clubName: "",
                     email: "",
                     phone: "",
                     sponsorshipType: "",
@@ -92,7 +92,7 @@ export default function LookingSponsorshipForm() {
 
                 {/* Organizer Details */}
                 <label>Club Name:
-                    <input type="text" name="clubname" value={formData.clubname} onChange={handleChange} required />
+                    <input type="text" name="clubName" value={formData.clubName} onChange={handleChange} required />
                 </label>
                 <br /><br />
                 

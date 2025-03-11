@@ -19,7 +19,7 @@ app.use(cors());
 app.use('/eventRoute', eventRoute);
 // Import the Sponsorship model
 const Sponsorship = require("./model/sponsorshipSchema"); // Adjust the path if necessary
-const SponsorshipForm = require("./model/sponsorshipFormSchema");
+const SponsorshipForm = require("./model/sponsorshipFormSchema.js");
 // Sponsorship schema and model
 // const sponsorshipSchema = new mongoose.Schema({
 //     fullName: String,
