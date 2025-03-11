@@ -42,6 +42,7 @@ export default function Navbar() {
   </li>
 )}
                         {user === "admin" && <li><Link to="/create-event">Create Event</Link></li>}
+                        {user === "admin" && <li><Link to="/get-sponsors">Sponser List</Link></li>}
                         {user === "admin" && <li><Link to="/looking-sponser">Sponser connect</Link></li>}
 
                     </ul>

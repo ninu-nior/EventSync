@@ -16,7 +16,7 @@ import CreateEvent from './components/Event/CreateEvent';
 import EventList from './components/Event/EventList';
 import UpdateEvent from './components/Event/UpdateEvent';
 import BookedEventsList from './components/Event/BookedEventsList';
-
+import SponsorList from './components/Event/SponsorList'
 import SponsorshipForm from './components/Sponsorship/SponsorshipForm';
 
 import './App.css';
@@ -75,6 +75,13 @@ function App() {
             <ProtectedRoute isLoggedIn={isLoggedIn}>
             <EventList/>
             </ProtectedRoute>}
+          />
+
+          <Route path = "/get-sponsors" 
+            element = {
+            <ProtectedRouteAdmin currentUser={user}>
+              <SponsorList/>
+            </ProtectedRouteAdmin>}
           />
 
           <Route path = "/update-event"
