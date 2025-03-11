@@ -36,7 +36,11 @@ export default function Navbar() {
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/view-event">Events</Link></li>
                         <li><Link to="/contact">Contact Us</Link></li>
-                        <li><Link to="/sponsorship-opportunities">Sponsorship Opportunities</Link></li>
+                        {user !== "admin" && (
+  <li>
+    <Link to="/sponsorship-opportunities">Sponsorship Opportunities</Link>
+  </li>
+)}
                         {user === "admin" && <li><Link to="/create-event">Create Event</Link></li>}
                     </ul>
                 </div>

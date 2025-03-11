@@ -2,6 +2,7 @@ const express = require("express");
 const userSchema = require("../model/userSchema");
 const eventSchema = require("../model/eventSchema");
 const feedbackSchema = require("../model/feedbackSchema");
+const sponsorshipSchema = require("../model/sponsorshipSchema");
 const eventRoute = express.Router();
 const mongoose = require("mongoose");
 
@@ -120,6 +121,17 @@ eventRoute.delete("/delete-event/:id",(req,res)=>{
             res.json(data);
     })
 })
+// Sponsorship
+eventRoute.post("/sponsorship", (req, res) => {
+    sponsorshipSchema.create(req.body, (err, data) => {
+        if (err) {
+            console.error("Sponsorship submission error:", err);
+            res.status(500).json({ message: "Failed to submit sponsorship application" });
+        } else {
+            res.status(200).json({ message: "Sponsorship application submitted successfully", data });
+        }
+    });
+});
 
 
 

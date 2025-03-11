@@ -23,11 +23,41 @@ export default function SponsorshipForm() {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Submitted Data:", formData);
-        // Add form submission logic here
+    
+        try {
+            const response = await fetch("http://localhost:4000/api/sponsorship", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            });
+    
+            if (response.ok) {
+                alert("Application submitted successfully!");
+                setFormData({
+                    fullName: "",
+                    organizationName: "",
+                    email: "",
+                    phone: "",
+                    sponsorshipType: "",
+                    contributionDetails: "",
+                    sponsorshipBenefits: "",
+                    financialCommitment: "",
+                    additionalNotes: "",
+                    lookingToSponsor: false,
+                });
+            } else {
+                alert("Failed to submit application");
+            }
+        } catch (error) {
+            console.error("Submission error:", error);
+            alert("An error occurred while submitting the application");
+        }
     };
+    
 
     return (
         <div className="sponsorship-form-container">
