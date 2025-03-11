@@ -122,6 +122,18 @@ eventRoute.delete("/delete-event/:id",(req,res)=>{
     })
 })
 // Sponsorship
+eventRoute.get("/sponsor-list", (req, res) => {
+    sponsorshipSchema.find({ lookingToSponsor: true }, (err, data) => {
+        if (err) {
+            console.error("Error fetching sponsors:", err);
+            res.status(500).json({ message: "Failed to fetch sponsors" });
+        } else {
+            res.status(200).json(data);
+        }
+    });
+});
+
+
 eventRoute.post("/sponsorship", (req, res) => {
     sponsorshipSchema.create(req.body, (err, data) => {
         if (err) {
