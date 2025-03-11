@@ -2,12 +2,12 @@ import { HashRouter, Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import ProtectedRoute from './components/Protected/ProtectedRoute';
 import ProtectedRouteAdmin from './components/Protected/ProtectedRoutedAdmin';
-
+import SponsorshipEventsList from './components/Events_to_sponsor/sponsorshipEventslist'
 import Navbar from './components/Navbar/Navbar';
 import Footer from "./components/Footer/Footer";
 import Home from './components/Home/Home';
 import ContactPage from './components/ContactPage/ContactPage';
-
+import LookingSponsorshipForm from './components/SponsorConnect/LookingSponsorshipForm';
 import Register from './components/Login/Register';
 import UserUpdateForm from './components/UserProfile/EditProfile';
 import UserList from './components/UserList/UserList';
@@ -99,7 +99,19 @@ function App() {
             </ProtectedRoute>
           }
           />
-          
+          <Route path = "/sponsorship-events"
+          element = {
+            <ProtectedRoute isLoggedIn={isLoggedIn}>
+            <SponsorshipEventsList/>
+            </ProtectedRoute>}
+          />
+          <Route path = "/looking-sponser" 
+          element = {
+            <ProtectedRoute isLoggedIn={isLoggedIn}>
+            <LookingSponsorshipForm/>
+            </ProtectedRoute>
+        }
+/>
         </Routes>
         <Footer/>
       </HashRouter>

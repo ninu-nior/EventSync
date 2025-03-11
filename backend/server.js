@@ -19,7 +19,7 @@ app.use(cors());
 app.use('/eventRoute', eventRoute);
 // Import the Sponsorship model
 const Sponsorship = require("./model/sponsorshipSchema"); // Adjust the path if necessary
-
+const SponsorshipForm = require("./model/sponsorshipFormSchema");
 // Sponsorship schema and model
 // const sponsorshipSchema = new mongoose.Schema({
 //     fullName: String,
@@ -42,6 +42,16 @@ app.post("/api/sponsorship", async (req, res) => {
         const newSponsor = new Sponsorship(req.body);
         await newSponsor.save();
         res.status(201).send("Sponsorship application submitted successfully");
+    } catch (error) {
+        console.error("Error saving sponsorship:", error);
+        res.status(500).send("Error submitting application");
+    }
+});
+app.post("/api/sponsorshipForm", async (req, res) => {
+    try {
+        const newSponsorForm = new SponsorshipForm(req.body);
+        await newSponsorForm.save();
+        res.status(201).send("Sponsorship Request submitted successfully");
     } catch (error) {
         console.error("Error saving sponsorship:", error);
         res.status(500).send("Error submitting application");

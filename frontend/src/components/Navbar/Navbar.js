@@ -42,6 +42,8 @@ export default function Navbar() {
   </li>
 )}
                         {user === "admin" && <li><Link to="/create-event">Create Event</Link></li>}
+                        {user === "admin" && <li><Link to="/looking-sponser">Sponser connect</Link></li>}
+
                     </ul>
                 </div>
 
@@ -55,7 +57,8 @@ export default function Navbar() {
                         <div className="dropdown-content">
                             {user !== "admin" && <Link to="/edit-profile">Edit Profile</Link>}
                             <Link to="/booked-events">Booked Events</Link>
-                            
+                            {user !== "admin" &&<Link to="/sponsorship-events">Sponsor Corner</Link>}
+
                             <Link to="/" onClick={logout}>Logout</Link>
                         </div>
                     </div>
