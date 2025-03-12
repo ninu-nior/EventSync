@@ -18,6 +18,9 @@ const SponsorshipEventsList = () => {
     return (
         <div className="sponsorship-events-list">
             <h1>Sponsor Events</h1>
+            <br></br>
+            <br></br>
+            <br></br>
             {events.length === 0 ? (
                 <p>No sponsorship events available.</p>
             ) : (
@@ -33,7 +36,7 @@ const SponsorshipEventsList = () => {
                             {event.contributionDetails && <p><strong>Details:</strong> {event.contributionDetails}</p>}
                             {event.additionalNotes && <p><strong>Additional Notes:</strong> {event.additionalNotes}</p>}
                             <br></br>
-                            <p>Contact Details☎️</p>
+                            <p>Contact Details ☎️</p>
                             {event.email && <p><strong>Email:</strong> {event.email}</p>}
                             {event.phone && <p><strong>Phone:</strong> {event.phone}</p>}
                         </div>

@@ -1,17 +1,20 @@
 .sponsorship-events-list {
-    padding: 20px;
-    margin: 20px auto;
+    padding: 40px;
+    margin: 30px auto;
     max-width: 1200px;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0.6) 50%);
     border-radius: 8px;
+    
     color: #fff;
-    text-align: center;
+    /* text-align: center; */
 }
 
 .sponsorship-events-list h1 {
-    font-size: 36px;
+    font-size: 48px;
+    text-decoration: overline #6b6565;
     margin-bottom: 20px;
     color: #ff5900a2;
+    text-align: center;
 }
 
 .events-grid {
@@ -27,7 +30,8 @@
     border-radius: 8px;
     background-color: #000000f7;
     color: #ddd;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.5);
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); */
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
@@ -39,7 +43,7 @@
 .event-item h2 {
     margin-bottom: 10px;
     background-color: rgba(15, 15, 15, 0.61);
-    color: #ff5900a2;
+    color: #b6b4b4f9;
     font-size: 24px;
 }
 
@@ -50,4 +54,7 @@
 
 .event-item p {
     margin: 5px 0;
+}
+strong{
+    color:#ff5900a2;
 }
