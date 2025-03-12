@@ -224,7 +224,7 @@ if (date) {
     useEffect(() => {
         if (props.action === "book"){
             setActionButton(
-            <button className='cardButton' style={{"backgroundColor": "greenyellow"}} onClick={Book}>
+            <button className='cardButton'  onClick={Book}>
                 Book Now!
             </button>);
         }
@@ -276,7 +276,7 @@ if (date) {
             </Card.Text>
         )
         setDescButton(
-            <button className='cardButton' style={{"backgroundColor":"wheat"}} onClick={viewDescription}>View Description</button>
+            <button className='cardButton'  onClick={viewDescription}>View Description</button>
         )
     }
     const viewDescription = () => {

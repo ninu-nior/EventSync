@@ -1,37 +1,47 @@
-import { useEffect, useState } from "react";
-import Axios from "axios";
-import "./sponsorevents.css"
-import EventCard from "../Event/EventCard";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import './SponsorshipEventsList.css';
 
-export default function SponsorshipEventsList() {
+const SponsorshipEventsList = () => {
     const [events, setEvents] = useState([]);
 
     useEffect(() => {
-        Axios.get("https://eventhub-t514.onrender.com/eventRoute/sponsorship-events")
-        .then((res) => {
-            if (res.status === 200 && res.data) {
-                setEvents(res.data.sponsorshipEvents);  // Ensure API returns sponsorship events
-            } else {
-                Promise.reject();
-            }
-        })
-        .catch((err) => console.error("Error fetching sponsorship events:", err));
-    }, []); // Added dependency array to avoid infinite calls
-
-    const SponsorshipItems = () => {
-        return events.map((event, index) => (
-            <EventCard key={index} obj={event} action="sponsor" />
-        ));
-    };
+        axios.get('http://localhost:4000/api/sponsorshipForm/needs-sponsorship')
+            .then((response) => {
+                setEvents(response.data);
+            })
+            .catch((error) => {
+                console.error("Error fetching sponsorship events:", error);
+            });
+    }, []);
 
     return (
-        <div>
-            <h2 style={{ textAlign: "center", marginBottom: "20px" }}>
-                Events Looking for Sponsorship
-            </h2>
-            <div className="cardContainer">
-                {events.length > 0 ? SponsorshipItems() : <p className="no-events">No events available.</p>                }
-            </div>
-        </div>
-    );
-}
+        <div className="sponsorship-events-list">
+            <h1>Sponsor Events</h1>
+            {events.length === 0 ? (
+                <p>No sponsorship events available.</p>
+            ) : (
+                <div className="events-grid">
+                    {events.map((event) => (
+                        <div key={event.id} className="event-item">
+                            <h2>{event.eventName}</h2>
+                            <h3>{event.collegeName}</h3>
+                            <p><strong>Estimated Date:</strong> {event.eventDate}</p>
+                            <p><strong>Sponsorship Type:</strong> {event.sponsorshipType}</p>
+                            <p><strong>Benefits Offered:</strong> {event.sponsorshipBenefits}</p>
+                            <p><strong>Financial Commitment:</strong> {event.financialCommitment}</p>
+                            {event.contributionDetails && <p><strong>Details:</strong> {event.contributionDetails}</p>}
+                            {event.additionalNotes && <p><strong>Additional Notes:</strong> {event.additionalNotes}</p>}
+                            <br></br>
+                            <p>Contact Details☎️</p>
+                            {event.email && <p><strong>Email:</strong> {event.email}</p>}
+                            {event.phone && <p><strong>Phone:</strong> {event.phone}</p>}
+                        </div>
+                    ))}
+                </div>
+            )}
+        </div>
+    );
+};
+
+export default SponsorshipEventsList;

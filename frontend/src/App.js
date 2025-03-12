@@ -1,8 +1,14 @@
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import SponsorList from './components/Event/SponsorList'
 import ProtectedRoute from './components/Protected/ProtectedRoute';
 import ProtectedRouteAdmin from './components/Protected/ProtectedRoutedAdmin';
-import SponsorshipEventsList from './components/Events_to_sponsor/sponsorshipEventslist'
+// import SponsorshipEventsList from './components/Events_to_sponsor/SponsorshipEventsList';
+import SponsorshipEventsList from './components/Events_to_sponsor/SponsorshipEventsList.js';
+
+
+// import SponsorshipEventsList from '.SponsorshipEventsList.js';
+
 import Navbar from './components/Navbar/Navbar';
 import Footer from "./components/Footer/Footer";
 import Home from './components/Home/Home';
@@ -76,7 +82,12 @@ function App() {
             <EventList/>
             </ProtectedRoute>}
           />
-
+ <Route path = "/get-sponsors" 
+            element = {
+            <ProtectedRouteAdmin currentUser={user}>
+              <SponsorList/>
+            </ProtectedRouteAdmin>}
+          />
           <Route path = "/update-event"
           element = {
             <ProtectedRouteAdmin currentUser={user}>

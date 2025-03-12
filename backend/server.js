@@ -57,6 +57,18 @@ app.post("/api/sponsorshipForm", async (req, res) => {
         res.status(500).send("Error submitting application");
     }
 });
+app.get("/api/sponsorshipForm/needs-sponsorship", async (req, res) => {
+    try {
+        const events = await SponsorshipForm.find({ lookingForSponsors: true });
+        if (events.length === 0) {
+            return res.status(404).send("No events are currently looking for sponsorship");
+        }
+        res.status(200).json(events);
+    } catch (error) {
+        console.error("Error fetching sponsorship events:", error);
+        res.status(500).send("Server error while fetching events");
+    }
+});
 
 app.listen(4000, () => {
     console.log("Server started at 4000");

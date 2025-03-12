@@ -1,0 +1,28 @@
+.eventCard {
+    background-color: rgb(223, 89, 51);
+    background-image: -moz-linear-gradient( black, gray);
+    border-radius: 10px;
+    margin: 10px;
+    padding: 20px;
+    color: white;
+    max-width: 25%;
+    min-width: 25%;
+    font-size: larger;
+  }
+
+  .eventCard:hover {
+    transform: scale(1.05);
+  }
+
+  .cardContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 10px;
+    margin-top: 8%;
+    justify-content: center;
+  }
+
+  .title{
+    text-align: center;
+  }

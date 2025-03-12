@@ -1,0 +1,53 @@
+.sponsorship-events-list {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0.6) 50%);
+    border-radius: 8px;
+    color: #fff;
+    text-align: center;
+}
+
+.sponsorship-events-list h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #ff5900a2;
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+}
+
+.event-item {
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #100808bf;
+    border-radius: 8px;
+    background-color: #000000f7;
+    color: #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.event-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.event-item h2 {
+    margin-bottom: 10px;
+    background-color: rgba(15, 15, 15, 0.61);
+    color: #ff5900a2;
+    font-size: 24px;
+}
+
+.event-item h3 {
+    margin: 0 0 10px;
+    font-size: 20px;
+}
+
+.event-item p {
+    margin: 5px 0;
+}
